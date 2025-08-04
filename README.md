@@ -38,19 +38,15 @@ sudo apt update
 sudo apt install ffmpeg
 ```
 
-## 构建和安装
+## 安装
+
+通过 Cargo 安装：
 
 ```bash
-# 克隆项目
-git clone <repository-url>
-cd img2webp
-
-# 构建项目
-cargo build --release
-
-# (可选) 安装到系统路径
-cargo install --path .
+cargo install img2webp
 ```
+
+确保您的 `~/.cargo/bin` 目录在您的 `PATH` 环境变量中。
 
 ## 使用方法
 
