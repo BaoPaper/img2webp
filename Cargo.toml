@@ -1,7 +1,11 @@
 [package]
 name = "img2webp"
+description = "A Simple Image to WebP CLI Tool"
 version = "0.1.1"
 edition = "2024"
+repository = "https://github.com/BaoPaper/img2webp"
+license = "MIT"
+readme = "README.md"
 publish = ["crates-io"]
 
 [dependencies]
