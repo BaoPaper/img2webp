@@ -1,0 +1,16 @@
+[package]
+name = "img2webp"
+version = "0.1.0"
+edition = "2024"
+publish = ["crates-io"]
+
+[dependencies]
+clap = { version = "4.0", features = ["derive"] }
+indicatif = "0.17"
+tokio = { version = "1.0", features = ["full"] }
+anyhow = "1.0"
+walkdir = "2.3"
+
+[[bin]]
+name = "img2webp"
+path = "src/main.rs"
