@@ -38,6 +38,7 @@ impl Converter {
         &self,
         files: Vec<(PathBuf, PathBuf)>,
         concurrent: usize,
+        progress: &crate::progress::ProgressTracker,
     ) -> Result<Vec<Result<(), anyhow::Error>>> {
         // 限制并发数量
         let semaphore = std::sync::Arc::new(tokio::sync::Semaphore::new(concurrent));
@@ -48,7 +49,8 @@ impl Converter {
         for (input, output) in files {
             let semaphore = semaphore.clone();
             let quality = self.quality;
-            
+            let progress = progress.clone();
+
             let handle = tokio::spawn(async move {
                 // 获取信号量许可
                 let _permit = semaphore.acquire().await.unwrap();
@@ -66,6 +68,7 @@ impl Converter {
                 match result {
                     Ok(output_result) => {
                         if output_result.status.success() {
+                            progress.inc(1);
                             Ok(())
                         } else {
                             let stderr = String::from_utf8_lossy(&output_result.stderr);

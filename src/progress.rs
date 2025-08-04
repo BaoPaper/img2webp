@@ -1,6 +1,7 @@
 use indicatif::{ProgressBar, ProgressStyle};
 
 /// 进度跟踪器
+#[derive(Clone)]
 pub struct ProgressTracker {
     bar: ProgressBar,
 }

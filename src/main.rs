@@ -150,13 +150,13 @@ async fn handle_directory(args: &cli::Args) -> Result<()> {
     
     // 并发执行转换
     progress.set_message("Converting files...");
-    let results = converter.convert_files_parallel(convert_tasks, args.concurrent).await?;
+    let results = converter.convert_files_parallel(convert_tasks, args.concurrent, &progress).await?;
     
     // 更新进度
     let mut success_count = 0;
     let mut error_count = 0;
     let mut errors = Vec::new();
-    
+
     for result in results {
         if result.is_ok() {
             success_count += 1;
@@ -164,7 +164,6 @@ async fn handle_directory(args: &cli::Args) -> Result<()> {
             error_count += 1;
             errors.push(result.unwrap_err());
         }
-        progress.inc(1);
     }
     
     progress.finish();
