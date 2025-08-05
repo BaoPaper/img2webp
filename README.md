@@ -1,4 +1,4 @@
-# img2webp
+# i2w
 
 一个高效的命令行工具，用于将图片文件转换为 WebP 格式。支持单文件转换、批量文件夹转换、并发处理、进度显示等功能，使用 FFmpeg 作为后端处理工具。
 
@@ -43,7 +43,7 @@ sudo apt install ffmpeg
 通过 Cargo 安装：
 
 ```bash
-cargo install img2webp
+cargo install i2w
 ```
 
 确保您的 `~/.cargo/bin` 目录在您的 `PATH` 环境变量中。
@@ -52,7 +52,7 @@ cargo install img2webp
 
 ### 基本语法
 ```bash
-img2webp [OPTIONS] <INPUT>
+i2w [OPTIONS] <INPUT>
 ```
 
 ### 参数说明
@@ -75,28 +75,28 @@ OPTIONS:
 
 ```bash
 # 转换单个文件
-img2webp image.jpg
+i2w image.jpg
 
 # 转换单个文件并指定输出路径
-img2webp image.png -o output.webp
+i2w image.png -o output.webp
 
 # 转换单个文件并指定质量
-img2webp -q 90 image.png
+i2w -q 90 image.png
 
 # 转换文件夹中的所有图片
-img2webp /path/to/images
+i2w /path/to/images
 
 # 转换文件夹并递归处理子文件夹
-img2webp -r /path/to/images
+i2w -r /path/to/images
 
 # 转换并替换原文件
-img2webp --replace /path/to/images
+i2w --replace /path/to/images
 
 # 设置并发数为8
-img2webp -c 8 /path/to/images
+i2w -c 8 /path/to/images
 
 # 组合多个选项
-img2webp -r -c 6 -q 85 /path/to/images
+i2w -r -c 6 -q 85 /path/to/images
 ```
 
 ## 项目结构

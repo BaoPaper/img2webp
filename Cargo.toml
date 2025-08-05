@@ -1,9 +1,9 @@
 [package]
-name = "img2webp"
+name = "i2w"
 description = "A Simple Image to WebP CLI Tool"
 version = "0.1.1"
 edition = "2024"
-repository = "https://github.com/BaoPaper/img2webp"
+repository = "https://github.com/BaoPaper/i2w"
 license = "MIT"
 readme = "README.md"
 publish = ["crates-io"]
@@ -16,5 +16,5 @@ anyhow = "1.0"
 walkdir = "2.3"
 
 [[bin]]
-name = "img2webp"
+name = "i2w"
 path = "src/main.rs"
